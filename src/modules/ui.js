@@ -1,4 +1,4 @@
-import { dateAndTime, clear } from './util';
+import { dateAndTime, dayAndDate, clear } from './util';
 
 const body = document.querySelector('body');
 const main = document.querySelector('main');
@@ -41,7 +41,6 @@ export function createDailyComponent({
   } = dateAndTime(localtime);
 
   //   TOP
-  clear();
 
   const top = document.createElement('div');
   top.classList.add('top');
@@ -90,7 +89,7 @@ export function createDailyComponent({
   const daily = document.createElement('div');
   daily.classList.add('daily');
   daily.appendChild(top);
-  main.appendChild(daily);
+
   //   BOTTOM
 
   const bottom = document.createElement('div');
@@ -196,6 +195,94 @@ export function createDailyComponent({
   bottom.appendChild(side);
 
   daily.appendChild(bottom);
+
+  main.appendChild(daily);
 }
 
-export function createWeeklyComponent({}) {}
+export function createWeeklyComponent({ forecast: { forecastday } }) {
+  const weekly = document.createElement('div');
+  weekly.classList.add('weekly');
+
+  const weekTitle = document.createElement('div');
+  weekTitle.classList.add('weekly_title');
+  weekTitle.textContent = 'Weekly Forecast';
+
+  const future = document.createElement('div');
+  future.classList.add('future');
+
+  forecastday.forEach(
+    ({
+      date,
+      day: {
+        avgtemp_c,
+        daily_chance_of_rain,
+        condition: { text, icon },
+      },
+    }) => {
+      const {
+        day: currDay,
+        month: currMonth,
+        date: currDate,
+      } = dayAndDate(date);
+
+      const fdays = document.createElement('div');
+      fdays.classList.add('future_days');
+
+      const dTop = document.createElement('div');
+      dTop.classList.add('day_top');
+
+      const actDay = document.createElement('p');
+      actDay.classList.add('future_day');
+      actDay.textContent = currDay;
+
+      const fdate = document.createElement('span');
+      fdate.classList.add('future_date');
+      fdate.textContent = `${currMonth} ${currDate}`;
+
+      dTop.appendChild(actDay);
+      dTop.appendChild(fdate);
+
+      const fcast = document.createElement('div');
+      fcast.classList.add('forecast');
+
+      const img = document.createElement('img');
+      img.src = icon;
+      img.alt = text;
+
+      fcast.appendChild(img);
+
+      const dBot = document.createElement('div');
+      dBot.classList.add('day_bottom');
+
+      const fTemp = document.createElement('p');
+      fTemp.classList.add('future_temp');
+      fTemp.textContent = avgtemp_c;
+
+      const frain = document.createElement('div');
+      frain.classList.add('future_rain');
+
+      const rainIcon = document.createElement('i');
+      rainIcon.className = 'fa-solid fa-cloud-rain';
+
+      const rPercent = document.createElement('p');
+      rPercent.classList.add('rain_percent');
+      rPercent.textContent = `${daily_chance_of_rain}%`;
+
+      frain.appendChild(rainIcon);
+      frain.appendChild(rPercent);
+
+      dBot.appendChild(fTemp);
+      dBot.appendChild(frain);
+
+      fdays.appendChild(dTop);
+      fdays.appendChild(fcast);
+      fdays.appendChild(dBot);
+
+      future.appendChild(fdays);
+    }
+  );
+
+  weekly.appendChild(weekTitle);
+  weekly.appendChild(future);
+  main.appendChild(weekly);
+}

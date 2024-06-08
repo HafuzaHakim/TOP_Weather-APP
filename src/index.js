@@ -12,9 +12,11 @@ const form = document.querySelector('#form');
 document.addEventListener('DOMContentLoaded', () => {
   getData('Balik Pulau')
     .then((data) => {
+      clear();
       console.log(data);
       setBackground(data);
       createDailyComponent(data);
+      createWeeklyComponent(data);
     })
     .catch((err) => console.error('Error outside', err));
 });
@@ -25,9 +27,11 @@ form.addEventListener('submit', (e) => {
 
   getData(value)
     .then((data) => {
+      clear();
       console.log(data);
       setBackground(data);
       createDailyComponent(data);
+      createWeeklyComponent(data);
     })
     .catch((err) => console.error('Error outside', err));
   form.reset();
