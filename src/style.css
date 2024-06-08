@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: url('/src/asset/night.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+
+  font-family: 'Kanit';
+  color: #ffffff;
+
+  position: relative;
+}
+
+/* Header Styling */
+
+header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header_left {
+  flex-basis: 400px;
+}
+
+form {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+input {
+  flex-basis: 80%;
+  padding: 0.25rem 1rem;
+  font: inherit;
+  background-color: rgba(128, 128, 128, 0.45);
+  color: #ffffff;
+  outline: none;
+  border: none;
+  border-radius: 8px 0 0 8px;
+}
+
+.submit {
+  flex-basis: 20%;
+  font: inherit;
+  background-color: rgba(137, 191, 216, 0.95);
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+.error {
+  margin-top: 0.5rem;
+  margin-left: 0.75rem;
+  color: #f74e4e;
+  font-size: 1.1rem;
+}
+
+button:hover {
+  background-color: rgba(137, 191, 216, 0.55);
+}
+
+button:active {
+  background-color: rgba(137, 191, 216, 0.95);
+}
+
+/* Main Styling */
+
+/* DAILY */
+main {
+  padding-inline: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  position: relative;
+  top: 10%;
+}
+
+.daily {
+  max-width: 650px;
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 55px;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.calendar {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 0.9rem;
+  gap: 1rem;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 1rem;
+}
+
+.temp {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+  align-items: center;
+
+  background-color: #0000006c;
+  border-radius: 15px;
+  padding: 1rem;
+
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 30px;
+  letter-spacing: 2px;
+}
+
+.act_temp {
+  font-size: 3.8rem;
+  position: relative;
+}
+
+.like_temp {
+  position: relative;
+}
+
+.act_temp::after {
+  content: '°C';
+  font-size: 1.4rem;
+  position: absolute;
+  top: -15px;
+}
+
+.like_temp::after,
+.future_temp::after {
+  content: '°C';
+}
+
+.side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1.5rem;
+
+  background-color: #0000006c;
+  border-radius: 15px;
+  padding: 1rem;
+
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.side_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side_data {
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+/* WEEKLY */
+
+.weekly {
+  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.weekly_title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 55px;
+  letter-spacing: 2px;
+}
+
+.future {
+  display: flex;
+  gap: 2rem;
+}
+
+.future_days {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  background-color: #0000006c;
+  border-radius: 15px;
+  padding: 1rem;
+
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.day_top {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.forecast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.day_bottom {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.future_rain {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+/* Footer Styling */
+
+.img {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
