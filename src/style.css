@@ -8,14 +8,23 @@
 
 body {
   height: 100vh;
-  background-image: url('/src/asset/night.jpg');
-  background-attachment: fixed;
-  background-size: cover;
 
   font-family: 'Kanit';
   color: #ffffff;
 
   position: relative;
+}
+
+.bg_day {
+  background-image: url('/src/asset/day.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.bg_night {
+  background-image: url('/src/asset/night.jpg');
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 /* Header Styling */
@@ -45,6 +54,10 @@ input {
   outline: none;
   border: none;
   border-radius: 8px 0 0 8px;
+}
+
+input::placeholder{
+    color: #ffffffaf;
 }
 
 .submit {
@@ -209,6 +222,7 @@ main {
 .future {
   display: flex;
   gap: 2rem;
+  overflow-x: auto;
 }
 
 .future_days {
