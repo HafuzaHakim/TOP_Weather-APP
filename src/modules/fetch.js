@@ -5,7 +5,7 @@ const url = 'http://api.weatherapi.com/v1';
 export async function getData(city) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`
     );
     const data = await response.json();
     if (!response.ok) {
