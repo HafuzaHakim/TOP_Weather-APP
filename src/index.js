@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   getData('Balik Pulau')
     .then((data) => {
       clear();
-      console.log(data);
       setBackground(data);
       createDailyComponent(data);
       createWeeklyComponent(data);
@@ -28,7 +27,6 @@ form.addEventListener('submit', (e) => {
   getData(value)
     .then((data) => {
       clear();
-      console.log(data);
       setBackground(data);
       createDailyComponent(data);
       createWeeklyComponent(data);
